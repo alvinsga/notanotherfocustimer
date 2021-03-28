@@ -55,7 +55,7 @@ export default class HelloWorld extends Vue {
   timeLimit = 1500;
   timePassed = 0;
   timerInterval = 0;
-  minutesArray = [0.05, 55, 85];
+  minutesArray = [25, 55, 85];
   quotes = [
     "“The successful warrior is the average man, with laser-like focus.” - Bruce Lee",
     "“Lack of direction, not lack of time, is the problem.” ― Zig Ziglar",
