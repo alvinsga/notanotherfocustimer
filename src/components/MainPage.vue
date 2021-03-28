@@ -2,50 +2,31 @@
   <div class>
     <v-container>
       <div
-        class="text-center font-weight-black text-md-h1 text-h2 mb-4 mb-md-8"
+        class="text-center font-weight-black text-md-h1 text-h2 mb-4 mb-md-8 pa-3"
       >
         Not Another Focus Timer
       </div>
       <div class="text-h6 text-center mb-12">
-        You've gotta be f*cking kidding me...
+        Don't we have enough of these already? ...
       </div>
       <div class="d-flex justify-center align-center">
         <v-row justify="center" align="center">
           <v-btn
+            v-for="minutes in minutesArray"
+            :key="minutes"
             class="ma-3"
             depressed
             dark
             rounded
             x-large
             color="black"
-            @click="click(1500)"
-            >25 minutes</v-btn
-          >
-          <v-btn
-            class="ma-3"
-            depressed
-            dark
-            rounded
-            x-large
-            color="black"
-            @click="click(3300)"
-            >55 minutes</v-btn
-          >
-          <v-btn
-            class="ma-3"
-            depressed
-            dark
-            rounded
-            x-large
-            color="black"
-            @click="click(5100)"
-          >
-            85 minutes</v-btn
+            @click="minuteButtonClicked(minutes)"
+            >{{ minutes }} minutes</v-btn
           >
         </v-row>
       </div>
       <v-expand-transition>
-        <div v-if="clicked">
+        <div v-if="showTimer">
           <div class="text-h1 font-weight-bold text-center mt-12 mb-4">
             {{ formattedTimeLeft }}
           </div>
@@ -72,24 +53,26 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component
 export default class HelloWorld extends Vue {
-  clicked = false;
+  showTimer = false;
   timeLimit = 1500;
   timePassed = 0;
   timerInterval = 0;
+  minutesArray = [25, 55, 85];
 
-  reset(time: number): void {
-    this.timeLimit = time;
-    this.timePassed = 0;
-    clearInterval(this.timerInterval);
-  }
-
-  click(time: number): void {
-    this.clicked = true;
-    this.reset(time);
+  minuteButtonClicked(minutes: number): void {
+    this.showTimer = true;
+    this.reset(minutes * 60);
     this.startTimer();
   }
+
+  reset(seconds: number): void {
+    this.timeLimit = seconds;
+    this.timePassed = 0;
+    if (this.timerInterval) clearInterval(this.timerInterval);
+  }
+
   hideTimer(): void {
-    this.clicked = false;
+    this.showTimer = false;
     clearInterval(this.timerInterval);
   }
 
@@ -107,6 +90,7 @@ export default class HelloWorld extends Vue {
   get timeLeft(): number {
     return this.timeLimit - this.timePassed;
   }
+
   get formattedTimeLeft(): string {
     const timeLeft = this.timeLeft;
     const minutes = Math.floor(timeLeft / 60);

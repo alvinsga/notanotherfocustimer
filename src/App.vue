@@ -1,28 +1,28 @@
 <template>
-  <v-app>
+  <v-app class="bcolor">
     <v-main class="d-flex justify-center align-center">
       <MainPage />
     </v-main>
-    <v-footer class="justify-center">
-      <div class="grey--text text-caption">
-        <!-- <a href="http://github.com">Source</a> -->
-        Dont like it? Well
-        <a href="javascript:history.back()">f*ck right off.</a>
-      </div>
+    <v-footer class="justify-center bcolor">
+      <a
+        href="https://github.com/karmanline/notanotherfocustimer"
+        target="_blank"
+      >
+        <v-img class="mb-3 mt-6" :src="require('@/assets/github.svg')"></v-img>
+      </a>
     </v-footer>
   </v-app>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-// import HelloWorld from "@/components/HelloWorld.vue";
 
 @Component({
   components: {
     MainPage: () => import("@/components/MainPage.vue"),
   },
   metaInfo: {
-    title: "Not Another Focus App",
+    title: "Not Another Focus Timer",
     meta: [
       {
         name: "keywords",
@@ -35,5 +35,15 @@ import { Component, Vue } from "vue-property-decorator";
     ],
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  open(): void {
+    window.open("https://github.com/karmanline/notanotherfocustimer", "_");
+  }
+}
 </script>
+
+<style scoped>
+.bcolor {
+  background-color: blanchedalmond !important;
+}
+</style>
