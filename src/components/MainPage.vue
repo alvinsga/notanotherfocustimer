@@ -55,7 +55,7 @@ export default class HelloWorld extends Vue {
   timeLimit = 1500;
   timePassed = 0;
   timerInterval = 0;
-  minutesArray = [25, 55, 85];
+  minutesArray = [0.05, 55, 85];
   quotes = [
     "“The successful warrior is the average man, with laser-like focus.” - Bruce Lee",
     "“Lack of direction, not lack of time, is the problem.” ― Zig Ziglar",
@@ -84,7 +84,7 @@ export default class HelloWorld extends Vue {
 
   async playAudio(): Promise<void> {
     const audio = new Audio(
-      "http://soundbible.com/mp3/Air Plane Ding-SoundBible.com-496729130.mp3"
+      "https://soundbible.com/mp3/Air Plane Ding-SoundBible.com-496729130.mp3"
     );
     await audio.play();
   }
@@ -95,10 +95,10 @@ export default class HelloWorld extends Vue {
         document.title = this.formattedTimeLeft + " - Work Work Work!";
         this.timePassed += 1;
       } else {
-        await this.playAudio();
-        alert("Times up!");
         document.title = "Phew - all done!";
         clearInterval(this.timerInterval);
+        await this.playAudio();
+        alert("Times up!");
       }
     }, 1000);
   }
