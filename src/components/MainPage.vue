@@ -1,10 +1,14 @@
 <template>
   <div class>
     <v-container>
-      <div class="text-center font-weight-black text-md-h1 text-h2 mb-4">
+      <div
+        class="text-center font-weight-black text-md-h1 text-h2 mb-4 mb-md-8"
+      >
         Not Another Focus Timer
       </div>
-      <div class="text-h6 text-center mb-12">You've gotta be kidding me...</div>
+      <div class="text-h6 text-center mb-12">
+        You've gotta be f*cking kidding me...
+      </div>
       <div class="d-flex justify-center align-center">
         <v-row justify="center" align="center">
           <v-btn
@@ -14,7 +18,7 @@
             rounded
             x-large
             color="black"
-            @click="click(5)"
+            @click="click(1500)"
             >25 minutes</v-btn
           >
           <v-btn
@@ -42,14 +46,15 @@
       </div>
       <v-expand-transition>
         <div v-if="clicked">
-          <div class="text-h1 font-weight-bold text-center mt-12">
+          <div class="text-h1 font-weight-bold text-center mt-12 mb-4">
             {{ formattedTimeLeft }}
           </div>
           <div class="d-flex justify-center">
             <v-btn
-              class="ma-3"
+              class="ma-5"
               depressed
               dark
+              large
               rounded
               color="red"
               @click="hideTimer()"
@@ -68,7 +73,7 @@ import { Component, Vue } from "vue-property-decorator";
 @Component
 export default class HelloWorld extends Vue {
   clicked = false;
-  timeLimit = 5;
+  timeLimit = 1500;
   timePassed = 0;
   timerInterval = 0;
 

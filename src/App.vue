@@ -1,12 +1,12 @@
 <template>
   <v-app>
     <v-main class="d-flex justify-center align-center">
-      <HelloWorld />
+      <MainPage />
     </v-main>
     <v-footer class="justify-center">
       <div class="grey--text text-caption">
         <!-- <a href="http://github.com">Source</a> -->
-        Dont like it? Well you can
+        Dont like it? Well
         <a href="javascript:history.back()">f*ck right off.</a>
       </div>
     </v-footer>
@@ -19,7 +19,7 @@ import { Component, Vue } from "vue-property-decorator";
 
 @Component({
   components: {
-    HelloWorld: () => import("@/components/HelloWorld.vue"),
+    MainPage: () => import("@/components/MainPage.vue"),
   },
 })
 export default class App extends Vue {}
