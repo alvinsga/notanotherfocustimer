@@ -1,66 +1,56 @@
 <template>
-  <v-container>
-    <div class="text-center text-h2 font-weight-bold">Hello World</div>
-  </v-container>
+  <div class="hello">
+<div class="text-center font-weight-black text-h2 mb-12">Not Another Focus Timer</div>
+<div class="d-flex ">
+  <button>Hellow</button>
+    <button>Hellow</button>
+      <button>Hellow</button>
+    <button>Hellow</button>
+      <button>Hellow</button>
+    <button>Hellow</button>
+      <button>Hellow</button>
+    <button>Hellow</button>
+      <button>Hellow</button>
+    <button>Hellow</button>
+      <button>Hellow</button>
+    <button>Hellow</button>
+      <button>Hellow</button>
+    <button>Hellow</button>
+      <button>Hellow</button>
+    <button>Hellow</button>
+      <button>Hellow</button>
+    <button>Hellow</button>
+
+  <!-- <v-btn class="ma-3" depressed dark rounded large color="black">3 minutes</v-btn>
+  <v-btn class="ma-3" depressed dark rounded large color="black">5 minutes</v-btn>
+  <v-btn class="ma-3" depressed dark rounded large color="black">10 minutes</v-btn> -->
+</div>
+  </div>
 </template>
 
 <script lang="ts">
-  import Vue from 'vue'
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
-  export default Vue.extend({
-    name: 'HelloWorld',
-
-    data: () => ({
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader',
-        },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify',
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify',
-        },
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com',
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com',
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuejs.com/vuetify',
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs',
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify',
-        },
-      ],
-      whatsNext: [
-        {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer',
-        },
-        {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
-        },
-        {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-        },
-      ],
-    }),
-  })
+@Component
+export default class HelloWorld extends Vue {
+  @Prop() private msg!: string;
+}
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
