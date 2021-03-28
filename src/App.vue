@@ -35,11 +35,7 @@ import { Component, Vue } from "vue-property-decorator";
     ],
   },
 })
-export default class App extends Vue {
-  open(): void {
-    window.open("https://github.com/karmanline/notanotherfocustimer", "_");
-  }
-}
+export default class App extends Vue {}
 </script>
 
 <style scoped>

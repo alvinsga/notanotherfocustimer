@@ -57,7 +57,7 @@ export default class HelloWorld extends Vue {
   timeLimit = 1500;
   timePassed = 0;
   timerInterval = 0;
-  minutesArray = [0.1, 55, 85];
+  minutesArray = [25, 55, 85];
 
   minuteButtonClicked(minutes: number): void {
     this.showTimer = true;
