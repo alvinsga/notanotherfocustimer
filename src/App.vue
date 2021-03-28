@@ -21,6 +21,19 @@ import { Component, Vue } from "vue-property-decorator";
   components: {
     MainPage: () => import("@/components/MainPage.vue"),
   },
+  metaInfo: {
+    title: "Not Another Focus App",
+    meta: [
+      {
+        name: "keywords",
+        content: "focus pomodoro timer quick simple easy mimalistic",
+      },
+      {
+        name: "description",
+        content: "A simple, minimalistic focus timer",
+      },
+    ],
+  },
 })
 export default class App extends Vue {}
 </script>
