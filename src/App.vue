@@ -3,6 +3,9 @@
     <v-main class="d-flex justify-center align-center">
       <HelloWorld />
     </v-main>
+    <v-footer class="justify-center">
+      <div class="grey--text text-caption">nof*cksgiven inc.</div>
+    </v-footer>
   </v-app>
 </template>
 
