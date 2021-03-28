@@ -1,18 +1,18 @@
 <template>
   <v-app>
     <v-main class="d-flex justify-center align-center">
-          <HelloWorld/>
+      <HelloWorld />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import { Component, Vue } from "vue-property-decorator";
+// import HelloWorld from "@/components/HelloWorld.vue";
 
 @Component({
   components: {
-    HelloWorld,
+    HelloWorld: () => import("@/components/HelloWorld.vue"),
   },
 })
 export default class App extends Vue {}
