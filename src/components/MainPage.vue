@@ -57,7 +57,7 @@ export default class HelloWorld extends Vue {
   timeLimit = 1500;
   timePassed = 0;
   timerInterval = 0;
-  minutesArray = [25, 55, 85];
+  minutesArray = [0.1, 55, 85];
 
   minuteButtonClicked(minutes: number): void {
     this.showTimer = true;
@@ -76,11 +76,19 @@ export default class HelloWorld extends Vue {
     clearInterval(this.timerInterval);
   }
 
+  async playAudio(): Promise<void> {
+    const audio = new Audio(
+      "http://soundbible.com/mp3/Air Plane Ding-SoundBible.com-496729130.mp3"
+    );
+    await audio.play();
+  }
+
   startTimer(): void {
-    this.timerInterval = setInterval(() => {
+    this.timerInterval = setInterval(async () => {
       if (this.timeLeft > 0) {
         this.timePassed += 1;
       } else {
+        await this.playAudio();
         alert("Times up!");
         clearInterval(this.timerInterval);
       }
