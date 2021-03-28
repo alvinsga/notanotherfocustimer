@@ -78,6 +78,7 @@ export default class HelloWorld extends Vue {
 
   hideTimer(): void {
     this.showTimer = false;
+    document.title = "Not Another Focus Timer";
     clearInterval(this.timerInterval);
   }
 
@@ -91,10 +92,12 @@ export default class HelloWorld extends Vue {
   startTimer(): void {
     this.timerInterval = setInterval(async () => {
       if (this.timeLeft > 0) {
+        document.title = this.formattedTimeLeft + " - Work Work Work!";
         this.timePassed += 1;
       } else {
         await this.playAudio();
         alert("Times up!");
+        document.title = "Phew - all done!";
         clearInterval(this.timerInterval);
       }
     }, 1000);
