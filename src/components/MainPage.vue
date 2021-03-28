@@ -6,9 +6,7 @@
       >
         Not Another Focus Timer
       </div>
-      <div class="text-h6 text-center mb-12">
-        Don't we have enough of these already? ...
-      </div>
+      <div class="text-h6 text-center mb-12 font-italic">{{ quote }}</div>
       <div class="d-flex justify-center align-center">
         <v-row justify="center" align="center">
           <v-btn
@@ -32,7 +30,7 @@
           </div>
           <div class="d-flex justify-center">
             <v-btn
-              class="ma-5"
+              class="ma-5 px-8"
               depressed
               dark
               large
@@ -58,6 +56,13 @@ export default class HelloWorld extends Vue {
   timePassed = 0;
   timerInterval = 0;
   minutesArray = [25, 55, 85];
+  quotes = [
+    "“The successful warrior is the average man, with laser-like focus.” - Bruce Lee",
+    "“Lack of direction, not lack of time, is the problem.” ― Zig Ziglar",
+    "“What you stay focused on will grow.” ― Roy T. Bennett",
+    "“Where your attention goes, your time goes” ― Idowu Koyenikan",
+    "“Focusing is about saying No.” ― Steve Jobs",
+  ];
 
   minuteButtonClicked(minutes: number): void {
     this.showTimer = true;
@@ -109,6 +114,11 @@ export default class HelloWorld extends Vue {
     }
     // The output in MM:SS format
     return `${minutes}:${seconds}`;
+  }
+
+  get quote(): string {
+    const randomNumber = Math.floor(Math.random() * 5);
+    return this.quotes[randomNumber];
   }
 }
 </script>
