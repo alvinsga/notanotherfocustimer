@@ -5,7 +5,6 @@
         Not Another Focus Timer
       </div>
       <div class="text-h6 text-center mb-12">You've gotta be kidding me...</div>
-
       <div class="d-flex justify-center align-center">
         <v-row justify="center" align="center">
           <v-btn
@@ -15,7 +14,7 @@
             rounded
             x-large
             color="black"
-            @click="click(1500)"
+            @click="click(5)"
             >25 minutes</v-btn
           >
           <v-btn
@@ -86,11 +85,17 @@ export default class HelloWorld extends Vue {
   }
   hideTimer(): void {
     this.clicked = false;
+    clearInterval(this.timerInterval);
   }
 
   startTimer(): void {
     this.timerInterval = setInterval(() => {
-      if (this.timeLeft > 0) this.timePassed += 1;
+      if (this.timeLeft > 0) {
+        this.timePassed += 1;
+      } else {
+        alert("Times up!");
+        clearInterval(this.timerInterval);
+      }
     }, 1000);
   }
 
@@ -101,6 +106,7 @@ export default class HelloWorld extends Vue {
     const timeLeft = this.timeLeft;
     const minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
+    // Prefix with 0 when less than 10 seconds
     if (seconds < 10) {
       return `${minutes}:0${seconds}`;
     }

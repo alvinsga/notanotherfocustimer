@@ -4,7 +4,11 @@
       <HelloWorld />
     </v-main>
     <v-footer class="justify-center">
-      <div class="grey--text text-caption">nof*cksgiven inc.</div>
+      <div class="grey--text text-caption">
+        <!-- <a href="http://github.com">Source</a> -->
+        Dont like it? Well you can
+        <a href="javascript:history.back()">f*ck right off.</a>
+      </div>
     </v-footer>
   </v-app>
 </template>
