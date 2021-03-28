@@ -1,6 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
-import "./registerServiceWorker";
+// import "./registerServiceWorker";
 import vuetify from "./plugins/vuetify";
 import Meta from "vue-meta";
 

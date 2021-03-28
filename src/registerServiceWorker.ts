@@ -21,8 +21,6 @@ if (process.env.NODE_ENV === "production") {
     },
     updated() {
       console.log("New content is available; please refresh.");
-      // eslint-disable-next-line no-self-assign
-      window.location.href = window.location.href;
     },
     offline() {
       console.log(
