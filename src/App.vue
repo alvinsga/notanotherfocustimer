@@ -40,6 +40,6 @@ export default class App extends Vue {}
 
 <style scoped>
 .bcolor {
-  background-color: #ffebcd !important;
+  background-color: lightsalmon !important;
 }
 </style>
