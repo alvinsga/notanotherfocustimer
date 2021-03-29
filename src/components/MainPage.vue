@@ -7,8 +7,8 @@
         Not Another Focus Timer
       </div>
       <div class="text-h6 text-center mb-12 font-italic">{{ quote }}</div>
-      <div class="d-flex justify-center align-center">
-        <v-row justify="center" align="center">
+      <v-expand-transition>
+        <v-row justify="center" align="center" v-if="!showTimer">
           <v-btn
             v-for="minutes in minutesArray"
             :key="minutes"
@@ -22,7 +22,7 @@
             >{{ minutes }} minutes</v-btn
           >
         </v-row>
-      </div>
+      </v-expand-transition>
       <v-expand-transition>
         <div v-if="showTimer">
           <div class="text-h1 font-weight-bold text-center mt-12 mb-4">
